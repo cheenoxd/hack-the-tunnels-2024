@@ -561,6 +561,6 @@ The `TimetableEvent` model represents the association of a scheduled event with 
 
 1. Open this [Stackblitz link](https://stackblitz.com/~/github.com/CarletonComputerScienceSociety/hack-the-tunnels-starter-2024?file=client/src/pages/Workshop/Page.tsx&initialPath=/workshop).
 
-2. In your terminal, run `npm i` then run `npm run dev`
+2. In your terminal, run `cd client` then run `npm i` then run `npm run dev`
 
 Note: You will not be able to make any API requests in Stackblitz (which is fine for the workshop)
