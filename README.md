@@ -37,6 +37,8 @@ The project template utilizes [React](https://react.dev/), [TypeScript](https://
         - [Scheduled Event](#scheduled-event)
         - [Timetable](#timetable)
         - [Timetable Event](#timetable-event)
+    - [Workshops](#workshops)
+        - [React Workshop](#react-workshop)
 
 # Event Setup Instructions
 
@@ -538,3 +540,27 @@ The `TimetableEvent` model represents the association of a scheduled event with 
 - **timetable**: Many-to-one relationship with the `Timetable` model.
 - **createdAt**: Timestamp indicating when the timetable event was created.
 - **updatedAt**: Timestamp automatically updated when the timetable event information changes.
+
+
+# Workshops
+
+## TypeScript Workshop
+
+(details coming soon)
+
+## React Workshop
+
+
+### Option 1: If you have your environment setup:
+1. Make sure you've completed [the client setup instructions](#client-setup).
+
+2. Open `http://localhost:5173/workshop`
+
+
+### Option 2: Utilize Stackblitz
+
+1. Open this [Stackblitz link](https://stackblitz.com/~/github.com/CarletonComputerScienceSociety/hack-the-tunnels-starter-2024?file=client/src/pages/Workshop/Page.tsx&initialPath=/workshop).
+
+2. In your terminal, run `npm i` then run `npm run dev`
+
+Note: You will not be able to make any API requests in Stackblitz (which is fine for the workshop)
