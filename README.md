@@ -126,7 +126,9 @@ brew install git
 
 ## Project Setup
 
-### Create a Github Repository for the Project
+### Create a Github Repository for the Project 
+
+For each team, one member should create the repository and all members of a team should clone the same repository
 
 Click on "Use this template" > Create a new repository
 
