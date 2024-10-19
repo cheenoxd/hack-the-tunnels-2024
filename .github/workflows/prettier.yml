@@ -1,15 +1,15 @@
 name: Run Prettier on Pull Requests
 
 on:
-  push:
+  pull_request:
     branches:
       - main
       - develop
 
 jobs:
-  prettier:
+  prettier-client:
+    name: Prettier - Client
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,21 +19,40 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
+      - name: Install Client Dependencies
+        working-directory: ./client
         run: npm install
 
-      - name: Run Prettier
+      - name: Run Prettier on Client
+        working-directory: ./client
         run: npx prettier --check "**/*.{js,ts,json,scss,md}"
 
-      - name: Fix formatting (if necessary)
+      - name: Fix Client Formatting (if necessary)
         if: failure()
+        working-directory: ./client
         run: npx prettier --write "**/*.{js,ts,json,scss,md}"
 
-      - name: Commit and push changes
+  prettier-service:
+    name: Prettier - Service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Service Dependencies
+        working-directory: ./service
+        run: npm install
+
+      - name: Run Prettier on Service
+        working-directory: ./service
+        run: npx prettier --check "**/*.{js,ts,json,scss,md}"
+
+      - name: Fix Service Formatting (if necessary)
         if: failure()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Prettier formatting fixes"
-          git push origin HEAD:$(echo ${{ github.head_ref }})
+        working-directory: ./service
+        run: npx prettier --write "**/*.{js,ts,json,scss,md}"
